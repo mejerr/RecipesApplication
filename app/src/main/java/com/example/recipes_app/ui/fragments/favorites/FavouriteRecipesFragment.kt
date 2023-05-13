@@ -1,10 +1,11 @@
-package com.example.recipes_app
+package com.example.recipes_app.ui.fragments.favorites
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.recipes_app.R
 
 class FavouriteRecipesFragment : Fragment() {
     override fun onCreateView(
