@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipes_app.viewmodels.MainViewModel
 import com.example.recipes_app.R
 import com.example.recipes_app.adapters.RecipesAdapter
@@ -50,8 +51,8 @@ class RecipesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-//        binding.recyclerview.adapter = mAdapter
-//        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerview.adapter = mAdapter
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         showShimmerEffect()
     }
 
@@ -106,11 +107,15 @@ class RecipesFragment : Fragment() {
     }
 
     private fun showShimmerEffect() {
-        binding.recyclerview.startShimmer()
+        binding.shimmerFrameLayout.startShimmer()
+        binding.shimmerFrameLayout.visibility = View.VISIBLE
+        binding.recyclerview.visibility = View.GONE
     }
 
     private fun hideShimmerEffect() {
-        binding.recyclerview.hideShimmer()
+        binding.shimmerFrameLayout.stopShimmer()
+        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.recyclerview.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {
