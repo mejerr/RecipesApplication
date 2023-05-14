@@ -1,4 +1,4 @@
-package com.example.recipes_app
+package com.example.recipes_app.viewmodels
 
 import android.app.Application
 import android.content.Context
@@ -10,18 +10,21 @@ import androidx.lifecycle.viewModelScope
 import com.example.recipes_app.data.Repository
 import com.example.recipes_app.models.FoodRecipe
 import com.example.recipes_app.util.NetworkResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.lang.Exception
 import javax.inject.Inject
 
+@HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: Repository,
-    application: Application): AndroidViewModel(application) {
+    application: Application
+): AndroidViewModel(application) {
 
-        var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
+    var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
 
-        fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
+    fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
             getRecipesSafeCall(queries)
         }
 
