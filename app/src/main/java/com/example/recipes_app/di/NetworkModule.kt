@@ -5,7 +5,6 @@ import com.example.recipes_app.data.network.FoodRecipesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.internal.managers.ApplicationComponentManager
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
