@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.recipes_app.data.Repository
-import com.example.recipes_app.data.database.RecipesEntity
+import com.example.recipes_app.data.database.entites.RecipesEntity
 import com.example.recipes_app.models.FoodRecipe
 import com.example.recipes_app.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
