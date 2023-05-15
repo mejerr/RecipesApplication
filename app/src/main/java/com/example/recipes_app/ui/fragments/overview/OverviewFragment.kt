@@ -10,6 +10,8 @@ import coil.load
 import com.example.recipes_app.R
 import com.example.recipes_app.databinding.FragmentOverviewBinding
 import com.example.recipes_app.models.Result
+import com.example.recipes_app.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.recipes_app.util.retrieveParcelable
 import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
@@ -26,7 +28,7 @@ class OverviewFragment : Fragment() {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
         val args = arguments
-        val myBundle: Result? = args?.getParcelable("recipeBundle")
+        val myBundle: Result? = args?.retrieveParcelable(RECIPE_RESULT_KEY)
 
         binding.mainImageView.load(myBundle?.image)
         binding.titleTextView.text = myBundle?.title
