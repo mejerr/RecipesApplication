@@ -35,4 +35,5 @@
     <string name="dairy_free">Dairy free</string>
     <string name="save_to_favorites">Save to Favourites</string>
     <string name="no_favorite_recipes">No favourite Recipes</string>
+    <string name="delete_all">Delete all</string>
 </resources>
