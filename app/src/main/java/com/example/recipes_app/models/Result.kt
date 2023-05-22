@@ -1,7 +1,6 @@
 package com.example.recipes_app.models
 
 import android.os.Parcelable
-import com.example.recipes_app.models.ExtendedIngredient
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
