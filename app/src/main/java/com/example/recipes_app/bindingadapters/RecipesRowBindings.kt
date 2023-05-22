@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
+import coil.load
 import com.example.recipes_app.R
 import com.example.recipes_app.models.Result
 import com.example.recipes_app.ui.fragments.recipes.RecipesFragmentDirections
@@ -30,6 +31,15 @@ class RecipesRowBindings {
                 } catch (e: Exception) {
                     Log.d("onRecipeClickListener", e.toString())
                 }
+            }
+        }
+
+        @BindingAdapter("loadImageFromUrl")
+        @JvmStatic
+        fun loanImageFromUrl(imageView: ImageView, imageUrl: String) {
+            imageView.load(imageUrl) {
+                crossfade(600)
+                error(R.drawable.ic_error_placeholder)
             }
         }
 
