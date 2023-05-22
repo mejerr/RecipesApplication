@@ -1,22 +1,23 @@
 package com.example.recipes_app.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipes_app.data.database.entites.FavouritesEntity
 import com.example.recipes_app.databinding.FavouriteRecipesRowLayoutBinding
+import com.example.recipes_app.ui.fragments.favorites.FavouriteRecipesFragmentDirections
 import com.example.recipes_app.util.RecipesDiffUtil
 
 class FavouriteRecipesAdapter : RecyclerView.Adapter<FavouriteRecipesAdapter.MyViewHolder>() {
-
     private var favoriteRecipes = emptyList<FavouritesEntity>()
-
-    class MyViewHolder(private val binding: FavouriteRecipesRowLayoutBinding) :
+    class MyViewHolder(val binding: FavouriteRecipesRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(favoritesEntity: FavouritesEntity) {
-            binding.favoritesEntity = favoritesEntity
+            binding.favouritesEntity = favoritesEntity
             binding.executePendingBindings()
         }
 
@@ -37,6 +38,14 @@ class FavouriteRecipesAdapter : RecyclerView.Adapter<FavouriteRecipesAdapter.MyV
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val selectedRecipe = favoriteRecipes[position]
         holder.bind(selectedRecipe)
+
+        holder.binding.favouriteRecipesRowLayout.setOnClickListener {
+                val action =
+                    FavouriteRecipesFragmentDirections.actionFavouriteRecipesFragmentToDetailsActivity(
+                        selectedRecipe.result
+                    )
+                holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
